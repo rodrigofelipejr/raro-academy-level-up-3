@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../../modules.dart';
 import '../../../shared/widgets/widgets.dart';
 import '../../../shared/validators/validators.dart';
+import '../../../shared/helpers/helpers.dart';
 
 class FormRecoverPasswordWidget extends StatefulWidget {
   final RecoverPasswordController controller;
@@ -36,18 +37,37 @@ class _FormLoginState extends State<FormRecoverPasswordWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextFormFieldWidget(
-            label: 'Enter your email to rest your password',
+            label: 'Informe seu e-mail para redefinir sua senha',
             textInputType: TextInputType.emailAddress,
             textInputAction: TextInputAction.done,
-            onChange: (value) {},
+            onChange: (value) => widget.controller.onChange(email: value),
             validator: (value) => EmailValidator.validate(value),
             textInputFormatter: [
               FilteringTextInputFormatter(RegExp(r'\s'), allow: false),
             ],
           ),
           ElevatedButtonWidget(
-            onPressed: () {},
-            child: Text('Recover Now'),
+            onPressed: () async {
+              if (_formKey.currentState?.validate() == true) {
+                final isValid = await widget.controller.handleRecoverPassword();
+
+                isValid
+                    ? showMessage(
+                        context,
+                        title: 'Sucesso',
+                        message: widget.controller.msgEmailSend,
+                        label: 'Ir para Login',
+                        onPressed: () => Navigator.popUntil(context, (route) => route.isFirst),
+                        isDismissible: false,
+                      )
+                    : showMessage(
+                        context,
+                        title: 'Dados inválidos',
+                        message: widget.controller.msgEmailUnsent,
+                      );
+              }
+            },
+            child: Text('Recuperar senha'),
           ),
         ],
       ),

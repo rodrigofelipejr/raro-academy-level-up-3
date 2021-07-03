@@ -25,7 +25,7 @@ class _RecoverPasswordPageState extends State<RecoverPasswordPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text('Forgot password?'),
+                Text('Esqueceu a senha?'),
                 FormRecoverPasswordWidget(controller),
               ],
             ),
