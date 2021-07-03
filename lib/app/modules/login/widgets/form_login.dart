@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:sys_app/app/shared/validators/validators.dart';
 
 import '../../modules.dart';
 import '../../../shared/widgets/widgets.dart';
@@ -34,10 +36,13 @@ class _FormLoginState extends State<FormLoginWidget> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           TextFormFieldWidget(
-            label: 'E-mail',
+            label: 'Email',
             textInputType: TextInputType.emailAddress,
             onChange: (value) {},
-            validator: (value) => null,
+            validator: (value) => EmailValidator.validate(value),
+            textInputFormatter: [
+              FilteringTextInputFormatter(RegExp(r'\s'), allow: false),
+            ],
           ),
           TextFormFieldWidget(
             label: 'Password',
@@ -46,9 +51,15 @@ class _FormLoginState extends State<FormLoginWidget> {
             onChange: (value) {},
             validator: (value) => null,
             textInputAction: TextInputAction.done,
+            textInputFormatter: [
+              FilteringTextInputFormatter(RegExp(r'\s'), allow: false),
+            ],
           ),
           ElevatedButtonWidget(
-            onPressed: () {},
+            onPressed: () {
+              final isFormValid = widget.controller.verifyLogin(_formKey);
+              print(isFormValid);
+            },
             child: Text('Entrar'),
           ),
         ],
