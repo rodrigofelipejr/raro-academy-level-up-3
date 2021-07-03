@@ -28,7 +28,10 @@ class TextFormFieldWidget extends StatelessWidget {
     return TextFormField(
       controller: controller,
       onChanged: onChange,
-      decoration: InputDecoration(labelText: label),
+      decoration: InputDecoration(
+        labelText: label,
+        errorMaxLines: 2,
+      ),
       validator: validator,
       textInputAction: textInputAction,
       obscureText: obscureText,

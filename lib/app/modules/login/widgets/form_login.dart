@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sys_app/app/shared/validators/password/passowrd_validator.dart';
 import 'package:sys_app/app/shared/validators/validators.dart';
 
 import '../../modules.dart';
@@ -49,7 +50,7 @@ class _FormLoginState extends State<FormLoginWidget> {
             textInputType: TextInputType.visiblePassword,
             obscureText: true,
             onChange: (value) {},
-            validator: (value) => null,
+            validator: (value) => PasswordValidator.validate(value),
             textInputAction: TextInputAction.done,
             textInputFormatter: [
               FilteringTextInputFormatter(RegExp(r'\s'), allow: false),
