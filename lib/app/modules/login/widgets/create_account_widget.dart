@@ -13,10 +13,13 @@ class CreateAccountWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Don\'t have account?'),
+          Padding(
+            padding: const EdgeInsets.only(right: 4.0),
+            child: Text('Ainda não possui conta?'),
+          ),
           TextLinkWidget(
             onTap: () => Navigator.of(context).pushNamed(AppRoutes.createAccount),
-            label: 'create a new account',
+            label: 'Crie uma nova.',
           ),
         ],
       ),
