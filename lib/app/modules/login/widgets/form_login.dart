@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sys_app/app/shared/validators/password/passowrd_validator.dart';
-import 'package:sys_app/app/shared/validators/validators.dart';
 
 import '../../modules.dart';
 import '../../../shared/widgets/widgets.dart';
+import '../../../shared/validators/validators.dart';
+import '../../../shared/helpers/helpers.dart';
 
 class FormLoginWidget extends StatefulWidget {
   final LoginController controller;
@@ -39,7 +39,7 @@ class _FormLoginState extends State<FormLoginWidget> {
           TextFormFieldWidget(
             label: 'Email',
             textInputType: TextInputType.emailAddress,
-            onChange: (value) {},
+            onChange: (value) => widget.controller.onChange(email: value),
             validator: (value) => EmailValidator.validate(value),
             textInputFormatter: [
               FilteringTextInputFormatter(RegExp(r'\s'), allow: false),
@@ -49,7 +49,7 @@ class _FormLoginState extends State<FormLoginWidget> {
             label: 'Password',
             textInputType: TextInputType.visiblePassword,
             obscureText: true,
-            onChange: (value) {},
+            onChange: (value) => widget.controller.onChange(password: value),
             validator: (value) => PasswordValidator.validate(value),
             textInputAction: TextInputAction.done,
             textInputFormatter: [
@@ -57,9 +57,14 @@ class _FormLoginState extends State<FormLoginWidget> {
             ],
           ),
           ElevatedButtonWidget(
-            onPressed: () {
-              final isFormValid = widget.controller.verifyLogin(_formKey);
-              print(isFormValid);
+            onPressed: () async {
+              if (_formKey.currentState?.validate() == true) {
+                final isValid = await widget.controller.handleAuthentication();
+
+                isValid
+                    ? Navigator.pushReplacementNamed(context, AppRoutes.home)
+                    : showMessage(context, message: 'Credenciais inválidas!');
+              }
             },
             child: Text('Entrar'),
           ),
