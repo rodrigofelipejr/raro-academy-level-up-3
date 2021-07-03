@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'recover_password_controller.dart';
+import 'widgets/form_recover_password_widget.dart';
 
 class RecoverPasswordPage extends StatefulWidget {
   const RecoverPasswordPage({Key? key}) : super(key: key);
@@ -16,7 +17,20 @@ class _RecoverPasswordPageState extends State<RecoverPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Recuperar senha'),
+        child: SingleChildScrollView(
+          physics: ClampingScrollPhysics(),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text('Forgot password?'),
+                FormRecoverPasswordWidget(controller),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
