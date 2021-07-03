@@ -64,7 +64,11 @@ class _FormLoginState extends State<FormLoginWidget> {
 
                 isValid
                     ? Navigator.pushReplacementNamed(context, AppRoutes.home)
-                    : showMessage(context, message: 'Credenciais inválidas!');
+                    : showMessage(
+                        context,
+                        title: 'Credenciais inválidas',
+                        message: 'Email ou senha incorretos',
+                      );
               }
             },
             child: Text('Login'),
