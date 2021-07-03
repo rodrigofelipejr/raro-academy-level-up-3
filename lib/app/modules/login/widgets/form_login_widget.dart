@@ -5,6 +5,7 @@ import '../../modules.dart';
 import '../../../shared/widgets/widgets.dart';
 import '../../../shared/validators/validators.dart';
 import '../../../shared/helpers/helpers.dart';
+import 'widgets.dart';
 
 class FormLoginWidget extends StatefulWidget {
   final LoginController controller;
@@ -34,7 +35,6 @@ class _FormLoginState extends State<FormLoginWidget> {
       key: _formKey,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           TextFormFieldWidget(
             label: 'Email',
@@ -56,6 +56,7 @@ class _FormLoginState extends State<FormLoginWidget> {
               FilteringTextInputFormatter(RegExp(r'\s'), allow: false),
             ],
           ),
+          ForgotPasswordWidget(),
           ElevatedButtonWidget(
             onPressed: () async {
               if (_formKey.currentState?.validate() == true) {
@@ -66,7 +67,7 @@ class _FormLoginState extends State<FormLoginWidget> {
                     : showMessage(context, message: 'Credenciais inválidas!');
               }
             },
-            child: Text('Entrar'),
+            child: Text('Login'),
           ),
         ],
       ),
