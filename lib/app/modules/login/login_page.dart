@@ -24,6 +24,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               children: [
                 LogoWidget(),
+                FormLoginWidget(controller: controller),
               ],
             ),
           ),
