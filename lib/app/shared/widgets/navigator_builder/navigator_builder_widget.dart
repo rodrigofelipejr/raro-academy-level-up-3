@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:sys_app/app/shared/widgets/navigator_builder/widgets/widgets.dart';
 
-import 'widgets/navigator_widget.dart';
+import 'widgets/widgets.dart';
 
 class NavigatorBuilderWidget extends StatefulWidget {
-  final List<Widget> pages;
+  final List<Map<Widget, bool Function()>> steps;
   final Future<bool> Function() onWillPop;
-  final Future<void> Function() onSave;
+  final Function onSave;
 
   const NavigatorBuilderWidget({
     Key? key,
-    required this.pages,
+    required this.steps,
     required this.onWillPop,
     required this.onSave,
   }) : super(key: key);
@@ -20,25 +19,39 @@ class NavigatorBuilderWidget extends StatefulWidget {
 }
 
 class NavigatorBuilderState extends State<NavigatorBuilderWidget> {
-  late List<Widget> _stackPages;
   late int _totalPages;
 
   int indexPage = 0;
+  List<Widget> _listPages = [];
+  List<Function> _listFunctions = [];
+  List<Widget> _stackPages = [];
 
   bool get _isLastStep => indexPage == _totalPages;
   bool get _isFirstStep => indexPage == 0;
 
   @override
   void initState() {
-    _stackPages = [widget.pages[0]];
-    _totalPages = widget.pages.length - 1;
+    _listPages = widget.steps.map<Widget>((e) => e.entries.first.key).toList();
+    _listFunctions = widget.steps.map<Function>((e) => e.entries.first.value).toList();
+
+    _totalPages = _listPages.length - 1;
+    _stackPages.add(_listPages[0]);
+
     super.initState();
   }
 
   void _nextPage() {
-    if ((indexPage + 1) <= (_totalPages)) {
-      _stackPages.add(widget.pages[++indexPage]);
-      setState(() {});
+    if (_listFunctions[indexPage].call()) {
+      if ((indexPage + 1) <= (_totalPages)) {
+        _stackPages.add(_listPages[++indexPage]);
+        setState(() {});
+      }
+    }
+  }
+
+  void _onComplete() {
+    if (_listFunctions[indexPage].call()) {
+      widget.onSave();
     }
   }
 
@@ -74,7 +87,7 @@ class NavigatorBuilderState extends State<NavigatorBuilderWidget> {
             isLastStep: _isLastStep,
             nextPage: _nextPage,
             previewsPage: _previewsPage,
-            onComplete: widget.onSave,
+            onComplete: _onComplete,
           ),
           left: 0,
           right: 0,

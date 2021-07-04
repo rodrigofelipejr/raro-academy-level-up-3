@@ -19,6 +19,15 @@ class LoginController {
     if (json?.isEmpty == true) return false;
 
     final List<UserModel> users = (json as List).map<UserModel>((item) => UserModel.fromJson(item)).toList();
-    return users.contains(_currentUser);
+
+    bool authenticated = false;
+    for (var user in users) {
+      if (user.email == _currentUser.email && user.password == _currentUser.password) {
+        authenticated = true;
+        break;
+      }
+    }
+
+    return authenticated;
   }
 }
