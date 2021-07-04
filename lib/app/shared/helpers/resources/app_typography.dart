@@ -12,4 +12,14 @@ class AppTypography {
       letterSpacing: 0.2,
     ),
   );
+
+  static TextStyle kStyleLabelTextButton = GoogleFonts.getFont(
+    'Source Sans Pro',
+    textStyle: TextStyle(
+      fontWeight: FontWeight.w600,
+      color: AppColors.kBlue1,
+      fontSize: 15.0,
+      letterSpacing: 0.2,
+    ),
+  );
 }

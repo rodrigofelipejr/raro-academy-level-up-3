@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sys_app/app/shared/helpers/helpers.dart';
 
 class TextButtonWidget extends StatelessWidget {
   final String label;
@@ -16,7 +17,17 @@ class TextButtonWidget extends StatelessWidget {
       onPressed: onPressed,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 18.0),
-        child: Text(label),
+        child: Text(
+          label,
+          style: AppTypography.kStyleLabelTextButton,
+        ),
+      ),
+      style: TextButton.styleFrom(
+        primary: AppColors.kBlue2,
+        shadowColor: Colors.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
       ),
     );
   }
