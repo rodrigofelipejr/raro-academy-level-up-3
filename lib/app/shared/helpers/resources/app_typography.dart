@@ -40,4 +40,21 @@ class AppTypography {
       fontSize: 16.0,
     ),
   );
+
+  static TextStyle kStyleLabelText = GoogleFonts.getFont(
+    'Source Sans Pro',
+    textStyle: TextStyle(
+      fontWeight: FontWeight.w600,
+      color: AppColors.kBlue2,
+    ),
+  );
+
+  static TextStyle kStyleErrorText = GoogleFonts.getFont(
+    'Source Sans Pro',
+    textStyle: TextStyle(
+      fontWeight: FontWeight.w600,
+      color: AppColors.kRed3,
+      fontSize: 13.0,
+    ),
+  );
 }

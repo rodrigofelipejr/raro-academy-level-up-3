@@ -7,8 +7,8 @@ class LogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120.0,
-      width: 120.0,
+      height: 100.0,
+      width: 100.0,
       child: Align(
         alignment: Alignment.center,
         child: Image.asset(

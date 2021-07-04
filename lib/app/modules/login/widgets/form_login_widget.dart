@@ -45,6 +45,7 @@ class _FormLoginState extends State<FormLoginWidget> {
               FilteringTextInputFormatter(RegExp(r'\s'), allow: false),
             ],
           ),
+          SizedBox(height: 12.0),
           TextFormFieldWidget(
             label: 'Password',
             textInputType: TextInputType.visiblePassword,
