@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'pages/pages.dart';
 import 'create_account_controller.dart';
-import 'widgets/navigator_builder.dart';
+import '../../shared/widgets/widgets.dart';
 
 class CreateAccountPage extends StatefulWidget {
   const CreateAccountPage({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
     return WillPopScope(
       onWillPop: onWillPop,
       child: Scaffold(
-        body: NavigatorBuilder(
+        body: NavigatorBuilderWidget(
           key: _navigatorKey,
           pages: List.from(_pages),
           onWillPop: onWillPop,

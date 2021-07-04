@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:sys_app/app/shared/widgets/navigator_builder/widgets/widgets.dart';
 
-import '../../../shared/widgets/widgets.dart';
+import 'widgets/navigator_widget.dart';
 
-class NavigatorBuilder extends StatefulWidget {
+class NavigatorBuilderWidget extends StatefulWidget {
   final List<Widget> pages;
   final Future<bool> Function() onWillPop;
   final Future<void> Function() onSave;
 
-  const NavigatorBuilder({
+  const NavigatorBuilderWidget({
     Key? key,
     required this.pages,
     required this.onWillPop,
@@ -18,11 +19,14 @@ class NavigatorBuilder extends StatefulWidget {
   NavigatorBuilderState createState() => NavigatorBuilderState();
 }
 
-class NavigatorBuilderState extends State<NavigatorBuilder> {
+class NavigatorBuilderState extends State<NavigatorBuilderWidget> {
   late List<Widget> _stackPages;
   late int _totalPages;
 
   int indexPage = 0;
+
+  bool get _isLastStep => indexPage == _totalPages;
+  bool get _isFirstStep => indexPage == 0;
 
   @override
   void initState() {
@@ -31,14 +35,14 @@ class NavigatorBuilderState extends State<NavigatorBuilder> {
     super.initState();
   }
 
-  void nextPage() {
+  void _nextPage() {
     if ((indexPage + 1) <= (_totalPages)) {
       _stackPages.add(widget.pages[++indexPage]);
       setState(() {});
     }
   }
 
-  void previewsPage() {
+  void _previewsPage() {
     if (_stackPages.length > 1) {
       _stackPages.removeAt(indexPage--);
       setState(() {});
@@ -49,52 +53,28 @@ class NavigatorBuilderState extends State<NavigatorBuilder> {
 
   bool _onPopPage(route, result) {
     if (route.didPop(result)) {
-      previewsPage();
+      _previewsPage();
       return true;
     } else {
       return false;
     }
   }
 
-  bool get _isLastStep => indexPage == _totalPages;
-  bool get _isFirstStep => indexPage == 0;
-
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Navigator(
+        NavigatorWidget(
           onPopPage: _onPopPage,
           pages: _stackPages.map((page) => MaterialPage(child: page)).toList(),
         ),
         Positioned(
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            // crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              if (!_isFirstStep)
-                Expanded(
-                  child: ElevatedButtonWidget(
-                    onPressed: previewsPage,
-                    child: Text('Voltar'),
-                  ),
-                ),
-              if (!_isLastStep)
-                Expanded(
-                  child: ElevatedButtonWidget(
-                    onPressed: nextPage,
-                    child: Text('Continuar'),
-                  ),
-                ),
-              if (_isLastStep)
-                Expanded(
-                  child: ElevatedButtonWidget(
-                    onPressed: widget.onSave,
-                    child: Text('Criar conta'),
-                  ),
-                ),
-            ],
+          child: ManagerButtonsStepsWidget(
+            isFirstStep: _isFirstStep,
+            isLastStep: _isLastStep,
+            nextPage: _nextPage,
+            previewsPage: _previewsPage,
+            onComplete: widget.onSave,
           ),
           left: 0,
           right: 0,
