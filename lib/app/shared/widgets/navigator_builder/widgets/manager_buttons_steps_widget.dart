@@ -29,21 +29,21 @@ class ManagerButtonsStepsWidget extends StatelessWidget {
           Expanded(
             child: ElevatedButtonWidget(
               onPressed: previewsPage,
-              child: Text('Voltar'),
+              label: 'Voltar',
             ),
           ),
         if (!isLastStep)
           Expanded(
             child: ElevatedButtonWidget(
               onPressed: nextPage,
-              child: Text('Continuar'),
+              label: 'Continuar',
             ),
           ),
         if (isLastStep)
           Expanded(
             child: ElevatedButtonWidget(
               onPressed: onComplete,
-              child: Text('Criar conta'),
+              label: 'Criar conta',
             ),
           ),
       ],

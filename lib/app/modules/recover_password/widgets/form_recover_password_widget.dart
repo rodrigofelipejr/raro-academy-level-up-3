@@ -67,7 +67,7 @@ class _FormLoginState extends State<FormRecoverPasswordWidget> {
                       );
               }
             },
-            child: Text('Recuperar senha'),
+            label: 'Recuperar senha',
           ),
         ],
       ),

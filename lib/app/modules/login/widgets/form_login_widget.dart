@@ -71,7 +71,7 @@ class _FormLoginState extends State<FormLoginWidget> {
                       );
               }
             },
-            child: Text('Login'),
+            label: 'Login',
           ),
         ],
       ),

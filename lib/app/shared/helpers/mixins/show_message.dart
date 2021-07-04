@@ -21,7 +21,7 @@ void showMessage(
           Text(message),
           ElevatedButtonWidget(
             onPressed: onPressed ?? () => Navigator.of(context).pop(),
-            child: Text(label),
+            label: label,
           )
         ],
       );
