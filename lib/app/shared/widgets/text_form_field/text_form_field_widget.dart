@@ -2,24 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
-  final TextEditingController? controller;
-  final TextInputType textInputType;
   final String label;
-  final ValueChanged<String> onChange;
-  final TextInputAction? textInputAction;
-  final bool obscureText;
   final String? Function(String? value) validator;
+  final ValueChanged<String> onChange;
+  final TextEditingController? controller;
+  final String? initialValue;
+  final bool obscureText;
+  final TextInputType textInputType;
+  final TextInputAction? textInputAction;
   final List<TextInputFormatter>? textInputFormatter;
 
   const TextFormFieldWidget({
     Key? key,
-    this.controller,
-    this.textInputType = TextInputType.text,
     required this.label,
     required this.validator,
     required this.onChange,
-    this.textInputAction = TextInputAction.next,
+    this.controller,
     this.obscureText = false,
+    this.initialValue,
+    this.textInputType = TextInputType.text,
+    this.textInputAction = TextInputAction.next,
     this.textInputFormatter,
   }) : super(key: key);
 
@@ -28,6 +30,7 @@ class TextFormFieldWidget extends StatelessWidget {
     return TextFormField(
       controller: controller,
       onChanged: onChange,
+      initialValue: initialValue,
       decoration: InputDecoration(
         labelText: label,
         errorMaxLines: 2,
