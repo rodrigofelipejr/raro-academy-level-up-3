@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../shared/models/models.dart';
 
 class LoginController {
-  UserModel _currentUser = UserModel(email: '', password: '');
+  UserModel _currentUser = UserModel(name: '', email: '', password: '');
 
   void onChange({String? email, String? password}) {
     _currentUser = _currentUser.copyWith(
