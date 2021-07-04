@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:sys_app/app/shared/helpers/helpers.dart';
 
 class LogoWidget extends StatelessWidget {
   const LogoWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100.0,
-      width: 100.0,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100.0),
-        color: Colors.orange[400],
-      ),
-      child: Icon(
-        Icons.notes,
-        color: Colors.white,
-        size: 68.0,
+    return SizedBox(
+      height: 120.0,
+      width: 120.0,
+      child: Align(
+        alignment: Alignment.center,
+        child: Image.asset(
+          AppImages.logoBlue,
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }
