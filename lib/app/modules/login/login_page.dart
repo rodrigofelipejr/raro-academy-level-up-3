@@ -25,6 +25,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 LogoWidget(),
                 FormLoginWidget(controller: controller),
+                SizedBox(height: 22.0),
                 CreateAccountWidget(),
               ],
             ),

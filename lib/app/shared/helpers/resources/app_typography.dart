@@ -18,8 +18,26 @@ class AppTypography {
     textStyle: TextStyle(
       fontWeight: FontWeight.w600,
       color: AppColors.kBlue1,
-      fontSize: 15.0,
+      fontSize: 16.0,
       letterSpacing: 0.2,
+    ),
+  );
+
+  static TextStyle kStyleTextBody1 = GoogleFonts.getFont(
+    'Source Sans Pro',
+    textStyle: TextStyle(
+      fontWeight: FontWeight.w500,
+      color: AppColors.kGrey1,
+      fontSize: 16.0,
+    ),
+  );
+
+  static TextStyle kStyleTextLink = GoogleFonts.getFont(
+    'Source Sans Pro',
+    textStyle: TextStyle(
+      fontWeight: FontWeight.w600,
+      color: AppColors.kBlue1,
+      fontSize: 16.0,
     ),
   );
 }

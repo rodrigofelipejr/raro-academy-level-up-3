@@ -15,7 +15,10 @@ class CreateAccountWidget extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(right: 4.0),
-            child: Text('Ainda não possui conta?'),
+            child: Text(
+              'Ainda não possui conta?',
+              style: AppTypography.kStyleTextBody1,
+            ),
           ),
           TextLinkWidget(
             onTap: () => Navigator.of(context).pushNamed(AppRoutes.createAccount),

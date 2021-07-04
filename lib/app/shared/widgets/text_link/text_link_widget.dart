@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sys_app/app/shared/helpers/helpers.dart';
 
 class TextLinkWidget extends StatelessWidget {
   final void Function() onTap;
@@ -14,7 +15,10 @@ class TextLinkWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Text(label),
+      child: Text(
+        label,
+        style: AppTypography.kStyleTextLink,
+      ),
     );
   }
 }
