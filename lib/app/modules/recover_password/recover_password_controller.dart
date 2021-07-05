@@ -13,7 +13,7 @@ class RecoverPasswordController {
     final localStorage = await SharedPreferences.getInstance();
     final json = localStorage.getStringList('users');
 
-    if (json?.isEmpty == true) return false;
+    if (json == null || json.isEmpty) return false;
 
     final List<UserModel> users = (json as List).map<UserModel>((item) => UserModel.fromJson(item)).toList();
 

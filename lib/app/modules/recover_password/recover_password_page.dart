@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sys_app/app/shared/helpers/helpers.dart';
 
 import 'recover_password_controller.dart';
 import 'widgets/form_recover_password_widget.dart';
@@ -25,7 +26,11 @@ class _RecoverPasswordPageState extends State<RecoverPasswordPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text('Esqueceu a senha?'),
+                Text(
+                  'Esqueceu a senha?',
+                  style: AppTypography.kStyleTextHeadline5,
+                ),
+                SizedBox(height: 16.0),
                 FormRecoverPasswordWidget(controller),
               ],
             ),

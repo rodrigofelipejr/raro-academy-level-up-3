@@ -46,6 +46,7 @@ class _FormLoginState extends State<FormRecoverPasswordWidget> {
               FilteringTextInputFormatter(RegExp(r'\s'), allow: false),
             ],
           ),
+          SizedBox(height: 16.0),
           ElevatedButtonWidget(
             onPressed: () async {
               if (_formKey.currentState?.validate() == true) {

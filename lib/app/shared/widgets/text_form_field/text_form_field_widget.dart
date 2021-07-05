@@ -28,8 +28,8 @@ class TextFormFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 58.0,
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: 58.0),
       child: TextFormField(
         controller: controller,
         onChanged: onChange,
