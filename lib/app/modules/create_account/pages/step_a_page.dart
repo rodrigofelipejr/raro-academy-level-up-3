@@ -17,7 +17,7 @@ class StepAPage extends StatefulWidget {
   StepAPageState createState() => StepAPageState();
 }
 
-class StepAPageState extends State<StepAPage> {
+class StepAPageState extends State<StepAPage> with KeyboardManager {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   TextEditingController _nameController = TextEditingController();
@@ -38,28 +38,33 @@ class StepAPageState extends State<StepAPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'Qual o seu nome?',
-              style: AppTypography.kStyleTextHeadline4,
+    return SafeArea(
+      child: GestureDetector(
+        onTap: () => hideKeyboard(context),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Qual o seu nome?',
+                  style: AppTypography.kStyleTextHeadline4,
+                ),
+                SizedBox(height: 14.0),
+                TextFormFieldWidget(
+                  label: 'Informe seu nome completo',
+                  controller: _nameController,
+                  onChange: (value) => widget.controller.onChange(name: value),
+                  validator: NameValidator.validate,
+                  textInputAction: TextInputAction.done,
+                  textInputType: TextInputType.name,
+                ),
+              ],
             ),
-            SizedBox(height: 14.0),
-            TextFormFieldWidget(
-              label: 'Informe seu nome completo',
-              controller: _nameController,
-              onChange: (value) => widget.controller.onChange(name: value),
-              validator: NameValidator.validate,
-              textInputAction: TextInputAction.done,
-              textInputType: TextInputType.name,
-            ),
-          ],
+          ),
         ),
       ),
     );

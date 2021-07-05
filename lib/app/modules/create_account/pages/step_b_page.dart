@@ -14,7 +14,7 @@ class StepBPage extends StatefulWidget {
   StepBPageState createState() => StepBPageState();
 }
 
-class StepBPageState extends State<StepBPage> {
+class StepBPageState extends State<StepBPage> with KeyboardManager {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   TextEditingController _emailController = TextEditingController();
@@ -35,28 +35,33 @@ class StepBPageState extends State<StepBPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'E o seu melhor email?',
-              style: AppTypography.kStyleTextHeadline4,
+    return SafeArea(
+      child: GestureDetector(
+        onTap: () => hideKeyboard(context),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'E o seu melhor email?',
+                  style: AppTypography.kStyleTextHeadline4,
+                ),
+                SizedBox(height: 14.0),
+                TextFormFieldWidget(
+                  label: 'Informe seu email',
+                  controller: _emailController,
+                  onChange: (value) => widget.controller.onChange(email: value),
+                  validator: EmailValidator.validate,
+                  textInputAction: TextInputAction.done,
+                  textInputType: TextInputType.emailAddress,
+                ),
+              ],
             ),
-            SizedBox(height: 14.0),
-            TextFormFieldWidget(
-              label: 'Informe seu email',
-              controller: _emailController,
-              onChange: (value) => widget.controller.onChange(email: value),
-              validator: EmailValidator.validate,
-              textInputAction: TextInputAction.done,
-              textInputType: TextInputType.emailAddress,
-            ),
-          ],
+          ),
         ),
       ),
     );
