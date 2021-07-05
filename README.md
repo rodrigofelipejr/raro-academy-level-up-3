@@ -35,16 +35,16 @@ O levelUP dessa semana consiste em criar um sistema de login.
 
 ## Screenshots
  
-![Screenshot 1](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen1.png)
-![Screenshot 2](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen2.png)
-![Screenshot 3](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen3.png)
-![Screenshot 4](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen4.png)
-![Screenshot 5](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen5.png)
-![Screenshot 6](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen6.png)
-![Screenshot 7](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen7.png)
-![Screenshot 8](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen8.png)
-![Screenshot 9](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen9.png)
-![Screenshot 10](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen10.png)
+![Screenshot 1](screenshots/screen1.png)
+![Screenshot 2](screenshots/screen2.png)
+![Screenshot 3](screenshots/screen3.png)
+![Screenshot 4](screenshots/screen4.png)
+![Screenshot 5](screenshots/screen5.png)
+![Screenshot 6](screenshots/screen7.png)
+![Screenshot 7](screenshots/screen8.png)
+![Screenshot 8](screenshots/screen9.png)
+![Screenshot 9](screenshots/screen10.png)
+![Screenshot 10](screenshots/screen11.png)
 
 
 ## Inspirações
