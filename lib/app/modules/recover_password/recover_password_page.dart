@@ -28,7 +28,7 @@ class _RecoverPasswordPageState extends State<RecoverPasswordPage> {
               children: [
                 Text(
                   'Esqueceu a senha?',
-                  style: AppTypography.kStyleTextHeadline5,
+                  style: AppTypography.kStyleTextHeadline4,
                 ),
                 SizedBox(height: 16.0),
                 FormRecoverPasswordWidget(controller),

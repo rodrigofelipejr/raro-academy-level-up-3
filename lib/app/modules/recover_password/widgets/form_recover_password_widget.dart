@@ -64,7 +64,8 @@ class _FormLoginState extends State<FormRecoverPasswordWidget> {
                     : showMessage(
                         context,
                         title: 'Dados inválidos',
-                        message: widget.controller.msgEmailUnsent,
+                        message: 'O email informado não foi encontrado em nossa base de dados.',
+                        type: messageType.error,
                       );
               }
             },

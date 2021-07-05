@@ -29,7 +29,6 @@ class RecoverPasswordController {
     return existsEmail;
   }
 
-  String msgEmailUnsent = 'O email informado não foi encontrado em nossa base de dados';
   late String msgEmailSend =
       'Enviamos um email para $_email, com as instruções e o link para você trocar a senha. caso você ' +
           'não receba o e-mail em alguns minutos, verifique a sua caixa de spam ou repita o processo.';

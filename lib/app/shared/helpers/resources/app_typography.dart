@@ -32,12 +32,21 @@ class AppTypography {
     ),
   );
 
-  static TextStyle kStyleTextHeadline5 = GoogleFonts.getFont(
+  static TextStyle kStyleTextHeadline4 = GoogleFonts.getFont(
     'Source Sans Pro',
     textStyle: TextStyle(
       fontWeight: FontWeight.w600,
       color: AppColors.kGrey1,
       fontSize: 28.0,
+    ),
+  );
+
+  static TextStyle kStyleTextHeadline5 = GoogleFonts.getFont(
+    'Source Sans Pro',
+    textStyle: TextStyle(
+      fontWeight: FontWeight.w600,
+      color: AppColors.kGrey1,
+      fontSize: 24.0,
     ),
   );
 
