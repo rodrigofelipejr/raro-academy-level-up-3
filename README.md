@@ -26,7 +26,6 @@ O levelUP dessa semana consiste em criar um sistema de login.
 - shared_preferences: ^2.0.6
 - flutter_native_splash: ^1.2.0
 
-
 ## Melhorias
 
 - Melhorar mensagem de erro exibida quando o email do usuário já estiver cadastrado
@@ -35,17 +34,26 @@ O levelUP dessa semana consiste em criar um sistema de login.
 
 ## Screenshots
  
-![Screenshot 1](screenshots/screen1.png)
-![Screenshot 2](screenshots/screen2.png)
-![Screenshot 3](screenshots/screen3.png)
-![Screenshot 4](screenshots/screen4.png)
-![Screenshot 5](screenshots/screen5.png)
-![Screenshot 6](screenshots/screen7.png)
-![Screenshot 7](screenshots/screen8.png)
-![Screenshot 8](screenshots/screen9.png)
-![Screenshot 9](screenshots/screen10.png)
-![Screenshot 10](screenshots/screen11.png)
-
+<p float="left">
+  <img src="screenshots/screenshot-1-splash.png" width="380" />
+  <img src="screenshots/screenshot-2-login-a.png" width="380" /> 
+</p>
+<p float="left">
+  <img src="screenshots/screenshot-2-login-b.png" width="380" />
+  <img src="screenshots/screenshot-3-account-a.png" width="380" /> 
+</p>
+<p float="left">
+  <img src="screenshots/screenshot-3-account-b.png" width="380" />
+  <img src="screenshots/screenshot-3-account-c.png" width="380" /> 
+</p>
+<p float="left">
+  <img src="screenshots/screenshot-3-account-d.png" width="380" />
+  <img src="screenshots/screenshot-3-account-e.png" width="380" /> 
+</p>
+<p float="left">
+  <img src="screenshots/screenshot-4-recover-a.png" width="380" />
+  <img src="screenshots/screenshot-4-recover-b.png" width="380" /> 
+</p>
 
 ## Inspirações
 
