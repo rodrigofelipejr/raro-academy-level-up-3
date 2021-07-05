@@ -23,6 +23,7 @@ class LoginController {
     bool authenticated = false;
     for (var user in users) {
       if (user.email == _currentUser.email && user.password == _currentUser.password) {
+        _currentUser = _currentUser.copyWith(name: user.name);
         authenticated = true;
         break;
       }
@@ -30,4 +31,6 @@ class LoginController {
 
     return authenticated;
   }
+
+  String get userName => _currentUser.name;
 }

@@ -64,7 +64,11 @@ class _FormLoginState extends State<FormLoginWidget> {
                 final isValid = await widget.controller.handleAuthentication();
 
                 isValid
-                    ? Navigator.pushReplacementNamed(context, AppRoutes.home)
+                    ? Navigator.pushReplacementNamed(
+                        context,
+                        AppRoutes.home,
+                        arguments: {'user': widget.controller.userName},
+                      )
                     : showMessage(
                         context,
                         title: 'Credenciais inválidas',
