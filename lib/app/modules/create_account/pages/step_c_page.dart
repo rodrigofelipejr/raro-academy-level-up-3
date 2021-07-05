@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../shared/helpers/helpers.dart';
 import '../../../shared/widgets/widgets.dart';
 import '../../../shared/validators/validators.dart';
 import '../create_account_controller.dart';
@@ -37,27 +38,45 @@ class StepCPageState extends State<StepCPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text('Crie uma senha segura'),
-            TextFormFieldWidget(
-              label: 'Informe uma senha',
-              controller: _passwordController,
-              obscureText: true,
-              onChange: (value) => widget.controller.onChange(password: value),
-              validator: PasswordValidator.validate,
-              textInputAction: TextInputAction.done,
-              textInputType: TextInputType.visiblePassword,
-            ),
-            Text('A senha deve atender ao seguintes critérios:'),
-            Text('Mínimo de 6 caracteres'),
-            Text('Incluir números e letras maiúsculas ou minúsculas'),
-          ],
+    return SafeArea(
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(24.0, 0, 24.0, 72.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                'Crie uma senha segura!',
+                style: AppTypography.kStyleTextHeadline4,
+              ),
+              SizedBox(height: 14.0),
+              TextFormFieldWidget(
+                label: 'Informe uma senha',
+                controller: _passwordController,
+                obscureText: true,
+                onChange: (value) => widget.controller.onChange(password: value),
+                validator: PasswordValidator.validate,
+                textInputAction: TextInputAction.done,
+                textInputType: TextInputType.visiblePassword,
+              ),
+              SizedBox(height: 18.0),
+              Text(
+                'A senha deve atender ao seguintes critérios:',
+                style: AppTypography.kStyleTextHeadline6,
+              ),
+              SizedBox(height: 14.0),
+              Text(
+                '- Mínimo de 6 caracteres;',
+                style: AppTypography.kStyleTextBody2,
+              ),
+              Text(
+                '- Incluir números e letras maiúsculas ou minúsculas;',
+                style: AppTypography.kStyleTextBody2,
+              ),
+            ],
+          ),
         ),
       ),
     );

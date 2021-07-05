@@ -15,7 +15,7 @@ class RecoverPasswordController {
 
     if (json == null || json.isEmpty) return false;
 
-    final List<UserModel> users = (json as List).map<UserModel>((item) => UserModel.fromJson(item)).toList();
+    final List<UserModel> users = json.map<UserModel>((item) => UserModel.fromJson(item)).toList();
 
     bool existsEmail = false;
 

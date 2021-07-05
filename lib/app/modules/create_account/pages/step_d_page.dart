@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../shared/helpers/helpers.dart';
 import '../../../shared/widgets/widgets.dart';
 import '../../../shared/validators/validators.dart';
 import '../create_account_controller.dart';
@@ -31,30 +32,50 @@ class StepDPageState extends State<StepDPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text('Agora vamos confirmar'),
-            TextFormFieldWidget(
-              label: 'Confirme a senha informada',
-              controller: _confirmPasswordController,
-              obscureText: true,
-              onChange: (value) {},
-              validator: (value) => PasswordValidator.toCompare(
-                value: value,
-                compare: widget.controller.newUser.password,
-              ),
-              textInputAction: TextInputAction.done,
-              textInputType: TextInputType.visiblePassword,
+    return SafeArea(
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(24.0, 0, 24.0, 72.0),
+        child: Form(
+          key: _formKey,
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Agora vamos confirmar',
+                  style: AppTypography.kStyleTextHeadline4,
+                ),
+                SizedBox(height: 14.0),
+                TextFormFieldWidget(
+                  label: 'Confirme a senha informada',
+                  controller: _confirmPasswordController,
+                  obscureText: true,
+                  onChange: (value) {},
+                  validator: (value) => PasswordValidator.toCompare(
+                    value: value,
+                    compare: widget.controller.newUser.password,
+                  ),
+                  textInputAction: TextInputAction.done,
+                  textInputType: TextInputType.visiblePassword,
+                ),
+                SizedBox(height: 18.0),
+                Text(
+                  'Lembre-se, a senha deve atender ao seguintes critérios:',
+                  style: AppTypography.kStyleTextHeadline6,
+                ),
+                SizedBox(height: 14.0),
+                Text(
+                  '- Mínimo de 6 caracteres;',
+                  style: AppTypography.kStyleTextBody2,
+                ),
+                Text(
+                  '- Incluir números e letras maiúsculas ou minúsculas;',
+                  style: AppTypography.kStyleTextBody2,
+                ),
+              ],
             ),
-            Text('Lembre-se, a senha deve atender ao seguintes critérios:'),
-            Text('Mínimo de 6 caracteres'),
-            Text('Incluir números e letras maiúsculas ou minúsculas'),
-          ],
+          ),
         ),
       ),
     );

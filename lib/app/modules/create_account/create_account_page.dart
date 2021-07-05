@@ -51,6 +51,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
             context,
             title: 'Algo deu errado!',
             message: 'Não foi possível processar a sua solicitação, tente novamente mais tarde.',
+            type: messageType.error,
           );
   }
 

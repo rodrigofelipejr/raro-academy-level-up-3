@@ -89,9 +89,9 @@ class NavigatorBuilderState extends State<NavigatorBuilderWidget> {
             previewsPage: _previewsPage,
             onComplete: _onComplete,
           ),
-          left: 0,
-          right: 0,
-          bottom: 0,
+          left: 24.0,
+          right: 24.0,
+          bottom: 24.0,
         )
       ],
     );

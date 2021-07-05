@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../shared/widgets/widgets.dart';
 import '../../../shared/validators/validators.dart';
 import '../create_account_controller.dart';
+import '../../../shared/helpers/helpers.dart';
 
 class StepAPage extends StatefulWidget {
   final CreateAccountController controller;
@@ -38,13 +39,18 @@ class StepAPageState extends State<StepAPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
       child: Form(
         key: _formKey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Qual o seu nome?'),
+            Text(
+              'Qual o seu nome?',
+              style: AppTypography.kStyleTextHeadline4,
+            ),
+            SizedBox(height: 14.0),
             TextFormFieldWidget(
               label: 'Informe seu nome completo',
               controller: _nameController,

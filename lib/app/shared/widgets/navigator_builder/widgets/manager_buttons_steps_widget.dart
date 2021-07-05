@@ -32,6 +32,7 @@ class ManagerButtonsStepsWidget extends StatelessWidget {
               label: 'Voltar',
             ),
           ),
+        if (!isFirstStep) SizedBox(width: 16.0),
         if (!isLastStep)
           Expanded(
             child: ElevatedButtonWidget(
