@@ -34,10 +34,18 @@ O levelUP dessa semana consiste em criar um sistema de login.
 - Implementar serviço para uso do SharedPreferences, afim de encapsular/centralizar código
 
 ## Screenshots
+ 
+![Screenshot 1](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen1.png)
+![Screenshot 2](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen2.png)
+![Screenshot 3](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen3.png)
+![Screenshot 4](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen4.png)
+![Screenshot 5](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen5.png)
+![Screenshot 6](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen6.png)
+![Screenshot 7](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen7.png)
+![Screenshot 8](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen8.png)
+![Screenshot 9](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen9.png)
+![Screenshot 10](https://github.com/rodrigofelipejr/raro-academy-level-up-3/screenshots/screen10.png)
 
-![Screenshot 1]()
-![Screenshot 2]()
-![Screenshot 3]() 
 
 ## Inspirações
 
